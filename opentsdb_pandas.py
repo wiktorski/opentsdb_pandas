@@ -1,8 +1,7 @@
 """
 
 This module provides methods to fetch data from OpenTSDB HTTP interface and convert them into Pandas Timeseries object.
-suggested import: import opentsdb_pandas as opd
- 
+
 2014.02, Tomasz Wiktor Wlodarczyk, University of Stavanger, Norway
 """
 
@@ -25,9 +24,10 @@ def ts_get(metric, start, end, tags='', agg='avg', rate=False, downsample='', ho
   downsample - specifies downsample function and interval in OpenTSDB format, default none, e.g. '60m-avg'
   trim - specifies if values received from OpneTSDB should be trimed to exactly match start and end parameters, OpenTSDB by default returns additional values before the start and after the end
   
-  Example use:
+  Example useage:
   import opentsdb_pandas as opd
   ts1 = opd.ts_get('cipsi.test1.temperature', dt.datetime(2013, 4, 3, 14, 10), dt.datetime(2013, 4, 10, 11, 30), 'node=0024C3145172746B', hostname='opentsdb.at.your.place.edu')
+  ts1
   """
   url = "http://%s:%s/q?start=%s&end=%s&m=%s%s%s:%s{%s}&ascii" %(hostname,port,start.strftime("%Y/%m/%d-%H:%M:%S"),end.strftime("%Y/%m/%d-%H:%M:%S"), agg , ':'+downsample if downsample.strip() else '', ':rate' if rate else '', metric, tags)
   answer = urllib2.urlopen(url).read().strip()
