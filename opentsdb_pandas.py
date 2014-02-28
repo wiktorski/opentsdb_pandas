@@ -30,7 +30,7 @@ def ts_get(metric, start, end, tags='', agg='avg', rate=False, downsample='', ho
   ts1 = opd.ts_get('cipsi.test1.temperature', dt.datetime(2013, 4, 3, 14, 10), dt.datetime(2013, 4, 10, 11, 30), 'node=0024C3145172746B', hostname='opentsdb.at.your.place.edu')
   """
   url = "http://%s:%s/q?start=%s&end=%s&m=%s%s%s:%s{%s}&ascii" %(hostname,port,start.strftime("%Y/%m/%d-%H:%M:%S"),end.strftime("%Y/%m/%d-%H:%M:%S"), agg , ':'+downsample if downsample.strip() else '', ':rate' if rate else '', metric, tags)
-  answer = urllib2.urlopen(url).read().strip() #.split('\n')
+  answer = urllib2.urlopen(url).read().strip()
   if answer:
     answer_by_line = answer.split('\n')
   else:
