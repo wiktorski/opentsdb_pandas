@@ -1,7 +1,7 @@
 opentsdb_pandas
 ===============
 
-This module provides methods to fetch data from OpenTSDB HTTP interface and convert them into Pandas Timeseries object. Basic structure is based mostly on [opentsdbr](https://github.com/holstius/opentsdbr/) library.
+This module provides methods to fetch data from [OpenTSDB](http://opentsdb.net/) HTTP interface and convert them into [Pandas](http://pandas.pydata.org/) [Timeseries](http://pandas.pydata.org/pandas-docs/stable/timeseries.html) object. Basic structure is based mostly on [opentsdbr](https://github.com/holstius/opentsdbr/) library.
 
 Example usage
 -------------
