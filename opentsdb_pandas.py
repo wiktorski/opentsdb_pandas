@@ -1,6 +1,6 @@
 """
 
-This module provides methods to fetch data from OpenTSDB HTTP interface and convert them into Pandas Timeseries object.
+This module provides methods to fetch data from OpenTSDB HTTP interface and convert them into Python's Pandas Timeseries object.
 
 2014.02, Tomasz Wiktor Wlodarczyk, University of Stavanger, Norway
 """
@@ -12,7 +12,7 @@ import datetime as dt
 
 def ts_get(metric, start, end, tags='', agg='avg', rate=False, downsample='', hostname='localhost', port=4242, trim=True):
   """
-  This function returns a Pandas Timeseries object with data fetched from OpenTSDB basing on the provided parameters.
+  This function returns a Python's Pandas Timeseries object with data fetched from OpenTSDB basing on the provided parameters.
   If there are no results it returns an empty Pandas Series, in case of any other exception it throws that exception.
   
   Parameters:
