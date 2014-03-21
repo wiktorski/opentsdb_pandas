@@ -23,8 +23,10 @@ def ts_get(metric, start, end, tags='', agg='avg', rate=False, downsample='', ho
   rate - specifies if rate should be calculated instead of raw data, default False
   downsample - specifies downsample function and interval in OpenTSDB format, default none, e.g. '60m-avg'
   trim - specifies if values received from OpneTSDB should be trimed to exactly match start and end parameters, OpenTSDB by default returns additional values before the start and after the end
-  
-  Example useage:
+  hostname - address of OpenTSB installation, default localhost
+  port - port of OpenTSDB installation, default 4242
+    
+  Example usage:
   import opentsdb_pandas as opd
   import datetime as dt
   ts1 = opd.ts_get('cipsi.test1.temperature', dt.datetime(2013, 4, 3, 14, 10), dt.datetime(2013, 4, 10, 11, 30), 'node=0024C3145172746B', hostname='opentsdb.at.your.place.edu')
@@ -43,3 +45,19 @@ def ts_get(metric, start, end, tags='', agg='avg', rate=False, downsample='', ho
     ts = ts.ix[(ts.index >= start) & (ts.index <= end)]
   return ts
 
+def dropcaches(hostname='localhost', port=4242):
+  """
+  This function drops caches in OpenTSDB. It returns True if caches were dropped and False otherwise.
+  
+  Parameters:
+  hostname - address of OpenTSB installation, default localhost
+  port - port of OpenTSDB installation, default 4242
+
+  Example usage:
+  import opentsdb_pandas as opd
+  opd.ts_dropcaches
+  """
+
+  url = "http://%s:%s/dropcaches" %(hostname,port)
+  answer = urllib2.urlopen(url).read().strip()
+  return answer == 'Caches dropped.'

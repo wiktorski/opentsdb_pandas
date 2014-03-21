@@ -39,3 +39,7 @@ def test_wrong_host():
   with pytest.raises(urllib2.URLError):
     ts1 = opd.ts_get('cipsi.seeds.test1.temperature', dt.datetime(2013, 04, 03), dt.datetime(2013, 04, 10), 'nodes=0013A2004061646F', hostname='haisen23.ux.ui.no', trim=False)
 
+def test_dropcaches():
+  t = opd.dropcaches('haisen23.ux.uis.no')
+  assert t == True
+
