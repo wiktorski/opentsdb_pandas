@@ -2,7 +2,7 @@
 
 This module provides methods to fetch data from OpenTSDB HTTP interface and convert them into Python's Pandas Timeseries object.
 
-2014.02, Tomasz Wiktor Wlodarczyk, University of Stavanger, Norway
+2014.02, Tomasz Wiktorski, University of Stavanger, Norway
 """
 
 import pandas as pd
