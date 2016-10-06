@@ -5,9 +5,9 @@ This module provides tests (pytest) for methods in opentsdb_pandas module (to fe
 (Most of) these tests rely on an external installation of OpenTSDB with a very specific set of data,
 if you test this in a different environment you will most probably have to modify the tests 
 to reflect different OpenTSDB location, metric, etc., and of course expected results
-however, the general test structure should remain unchanges
+however, the general test structure should remain unchanged.
 
-2014.02, Tomasz Wiktor Wlodarczyk, University of Stavanger, Norway
+2014.02, Tomasz Wiktorski, University of Stavanger, Norway
 """
 
 import opentsdb_pandas as opd
